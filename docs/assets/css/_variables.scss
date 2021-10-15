@@ -1,0 +1,46 @@
+$purple: #A850BE;
+$light-grey: #eaeaeb;
+$dark-grey: #464646;
+$yellow: #FABE50;
+$base-font-family: Arial, Helvetica, sans-serif;
+$image-width: 45%;
+$layout-margin-size: 10px;
+
+%no-decoration {
+    text-decoration: none;
+}
+
+%underline-decoration {
+    text-decoration: underline;
+}
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin flex-display($property, $justify-content) {
+    display: flex;
+    #{$property}: $justify-content;
+}
+
+@mixin celular {
+    @media (max-width: 768px) { @content; }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1200px) { @content; }
+}
+
+@mixin desktop {
+    @media (min-width: 1200px) { @content; }
+}
+
+@function pixel-to-rem($size) {
+    @return $size / 16px * 1rem;
+}
+
+@mixin fontSize($size) {
+    font-size: pixel-to-rem($size);
+}
